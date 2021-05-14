@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Rock Paper Scissors</title>
-  <meta charset="UTF-8"/>
-</head>
-<body>
-  <script>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <script>
 
-    function computerPlay() {
-      let gameValue = ['rock', 'paper', 'scissors']
-      return gameValue[Math.floor(Math.random() * gameValue.length)] 
-    }
+      function computerPlay() {
+        let gameValue = ['rock', 'paper', 'scissors']
+        return gameValue[Math.floor(Math.random() * gameValue.length)]
+      }
 
-    function playRound() {
+      function playRound() {
+        let playerSelection = prompt("Choose Rock, Paper or Scissors: ");
+        playerSelection = playerSelection.toLowerCase();
+        let computerSelection = computerPlay();
 
-      let playerSelection = prompt("Choose Rock, Paper or Scissors: ");
-      playerSelection = playerSelection.toLowerCase();
-      let computerSelection = computerPlay();
-
-      if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
          (playerSelection == 'paper' && computerSelection == 'rock') ||
          (playerSelection == 'scissors' && computerSelection == 'paper')) {
           console.log("You win! " + playerSelection + " beats " + computerSelection);
@@ -33,23 +32,21 @@
            console.log("You lose! " + computerSelection + " beats " + playerSelection);
           return "Lost";
          }
-
-    }
-
-    function game() {
-
-      let playerScore = 0;
-      let computerScore = 0;
-     
-      for (let i = 0; i < 5; i++) {
-        let result = playRound();
-        if (result === "Won") {
-          playerScore++;
-        }
-        else if (result === "Lost") {
-          computerScore++;
-        }
       }
+
+      function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+
+        for (let i = 0; i < 5; i++) {
+          let result = playRound();
+          if (result === "Won") {
+            playerScore++;
+          }
+          else if (result === "Lost") {
+            computerScore++;
+          }
+        }
 
       if (playerScore === computerScore) {
         return "It's a tie! Your score: " + playerScore + " Computer score: " + computerScore;
@@ -61,10 +58,10 @@
         return "You lost! Your score: " + playerScore + " Computer score: " + computerScore;
       }
 
-    }
-    
-    console.log(game());
+      }
 
-</script>
-</body>
+      console.log(game());
+
+    </script>
+    </body>
 </html>
