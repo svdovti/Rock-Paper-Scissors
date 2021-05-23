@@ -1,0 +1,54 @@
+function computerPlay() {
+  let gameValue = ['rock', 'paper', 'scissors']
+  return gameValue[Math.floor(Math.random() * gameValue.length)]
+}
+
+function playRound() {
+  let playerSelection = prompt("Choose Rock, Paper or Scissors: ");
+  playerSelection = playerSelection.toLowerCase();
+  let computerSelection = computerPlay();
+
+  if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+   (playerSelection == 'paper' && computerSelection == 'rock') ||
+   (playerSelection == 'scissors' && computerSelection == 'paper')) {
+    console.log("You win! " + playerSelection + " beats " + computerSelection);
+    return "Won";
+   }
+   else if (playerSelection == computerSelection) {
+     console.log("Tie!")
+     return "Tie";
+
+   }
+   else {
+     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+    return "Lost";
+   }
+}
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let result = playRound();
+    if (result === "Won") {
+      playerScore++;
+    }
+    else if (result === "Lost") {
+      computerScore++;
+    }
+  }
+
+if (playerScore === computerScore) {
+  return "It's a tie! Your score: " + playerScore + " Computer score: " + computerScore;
+}
+else if (playerScore>computerScore) {
+  return "You won! Your score: " + playerScore + " Computer score: " + computerScore;
+}
+else if (playerScore<computerScore) {
+  return "You lost! Your score: " + playerScore + " Computer score: " + computerScore;
+}
+
+}
+
+console.log(game());
