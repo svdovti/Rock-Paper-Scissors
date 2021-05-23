@@ -1,0 +1,18 @@
+body {
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+    font-family: arial, sans-serif;
+}
+h1 {
+    font-size: 50px;
+}
+.gamebuttons {
+    margin: 50px;
+}
+input {
+    margin: 5px;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
