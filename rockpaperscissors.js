@@ -1,4 +1,11 @@
 const buttons = document.querySelectorAll('input');
+
+buttons.forEach((button) =>{
+    button.addEventListener('click', function(){
+        playRound(button.value);
+    });
+})
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -18,6 +25,7 @@ function playRound(playerSelection) {
         result = ("You won! " + playerSelection + " beats "+ computerSelection + "! Current Player Score: " + playerScore + " Computer Score: " + computerScore);
         if (playerScore === 5) {
             result = ("You won! The final score is: " + playerScore + " : " + computerScore)
+            disableButtons()
             
         }
     }
@@ -29,6 +37,7 @@ function playRound(playerSelection) {
         result = ("You lost! " + playerSelection + " beats "+ computerSelection + "! Current Player Score: " + playerScore + " Computer Score: " + computerScore);
         if (computerScore === 5) {
             result = ("You lost! The final score is: " + playerScore + " : " + computerScore)
+            disableButtons()
             
         }
     }
@@ -36,8 +45,9 @@ function playRound(playerSelection) {
     return
 }
 
-buttons.forEach((button) =>{
-    button.addEventListener('click', function(){
-        playRound(button.value);
-    });
-})
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+    
+}

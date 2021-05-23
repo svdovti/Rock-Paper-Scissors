@@ -10,6 +10,9 @@ h1 {
 .gamebuttons {
     margin: 50px;
 }
+#results {
+    font-size: 25px;
+}
 input {
     margin: 5px;
     padding: 20px;
